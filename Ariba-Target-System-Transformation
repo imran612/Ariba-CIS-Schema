@@ -1,0 +1,203 @@
+{
+    "user": {
+        "mappings": [
+            {
+                "targetPath": "$.id",
+                "sourceVariable": "entityIdTargetSystem"
+            },
+            {
+                "targetPath": "$.schemas",
+                "constant": [
+                    "urn:ietf:params:scim:schemas:core:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:sap:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User",
+                    "urn:sap:cloud:scim:schemas:extension:custom:2.0:profile:User"
+                ]
+            },
+            {
+                "sourcePath": "$.userName",
+                "targetPath": "$.userName"
+            },
+            {
+                "sourcePath": "$.emails",
+                "targetPath": "$.emails",
+                "optional": true,
+                "preserveArrayWithSingleElement": true
+            },
+            {
+                "targetPath": "$.emails[0].primary",
+                "condition": "$.emails[0].length() > 0",
+                "constant": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:User']['userUuid']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['companyCode']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['companyCode']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['costCenter']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['costCenter']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['purchasingGroup']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['purchasingGroup']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['generalLedgerAccount']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['generalLedgerAccount']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['purchasingOrganization']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['purchasingOrganization']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['plant']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User']['plant']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['currency']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['currency']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['deliverTo']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['deliverTo']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['purchasingUnit']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['purchasingUnit']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['network']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['network']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['addresses']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['addresses']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['passwordAdapter']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:ariba:2.0:User']['passwordAdapter']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:sap:cloud:scim:schemas:extension:custom:2.0:profile:User']['alternativeDisplayNames']",
+                "targetPath": "$['urn:sap:cloud:scim:schemas:extension:custom:2.0:profile:User']['alternativeDisplayNames']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$.locale",
+                "targetPath": "$.locale",
+                "optional": true
+            },
+            {
+                "sourcePath": "$.displayName",
+                "targetPath": "$.displayName",
+                "optional": true
+            },
+            {
+                "sourcePath": "$.active",
+                "targetPath": "$.active"
+            },
+            {
+                "sourcePath": "$.timezone",
+                "targetPath": "$.timezone",
+                "optional": true
+            },
+            {
+                "sourcePath": "$.phoneNumbers",
+                "targetPath": "$.phoneNumbers",
+                "optional": true,
+                "preserveArrayWithSingleElement": true,
+                "functions": [
+                    {
+                        "function": "putIfAbsent",
+                        "key": "type",
+                        "defaultValue": "work"
+                    }
+                ]
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:enterprise:2.0:User']['manager']['displayName']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:enterprise:2.0:User']['manager']['value']",
+                "optional": true,
+                "functions": [
+                    {
+                        "function": "resolveEntityIds"
+                    }
+                ]
+            }
+        ]
+    },
+    "group": {
+        "condition": "('%ariba.applications.group.prefix%' === 'null') || ($.displayName =~ /%ariba.applications.group.prefix%.*/)",
+        "mappings": [
+            {
+                "targetPath": "$.id",
+                "sourceVariable": "entityIdTargetSystem"
+            },
+            {
+                "targetPath": "$.schemas",
+                "constant": [
+                    "urn:ietf:params:scim:schemas:core:2.0:Group",
+                    "urn:ietf:params:scim:schemas:extension:sap:2.0:Group",
+                    "urn:sap:cloud:scim:schemas:extension:custom:2.0:profile:Group"
+                ]
+            },
+            {
+                "sourcePath": "$.displayName",
+                "targetPath": "$.displayName",
+                "functions": [
+                    {
+                        "function": "replaceFirstString",
+                        "condition": "('%ariba.applications.group.prefix%' !== 'null') && (@ =~ /%ariba.applications.group.prefix%.*/)",
+                        "regex": "%ariba.applications.group.prefix%",
+                        "replacement": ""
+                    }
+                ]
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['type']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['type']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['supportedOperations']",
+                "targetPath": "$['urn:ietf:params:scim:schemas:extension:sap:2.0:Group']['supportedOperations']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$['urn:sap:cloud:scim:schemas:extension:custom:2.0:profile:Group']['alternativeDisplayNames']",
+                "targetPath": "$['urn:sap:cloud:scim:schemas:extension:custom:2.0:profile:Group']['alternativeDisplayNames']",
+                "optional": true
+            },
+            {
+                "sourcePath": "$.members[*].value",
+                "targetPath": "$.members[?(@.value)]",
+                "optional": true,
+                "preserveArrayWithSingleElement": true,
+                "functions": [
+                    {
+                        "function": "resolveEntityIds"
+                    }
+                ]
+            }
+        ]
+    }
+}
