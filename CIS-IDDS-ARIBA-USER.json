@@ -1,0 +1,184 @@
+
+{
+  "externalId": "aribacisuser1",
+  "schemas": [
+    "urn:ietf:params:scim:schemas:core:2.0:User",
+    "urn:ietf:params:scim:schemas:extension:sap:2.0:User",
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+    "urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User",
+    "urn:ietf:params:scim:schemas:extension:vendor:ariba:2.0:User"
+  ],
+  "userName": "aribacisuser1",
+  "name": {
+    "familyName": "Imran",
+    "givenName": "Khan",
+    "formatted": "Mr. Imran Khan",
+    "middleName": "K",
+    "honorificPrefix": "Mr.",
+    "honorificSuffix": "II"
+  },
+  "displayName": "Imran",
+  "nickName": "Khan",
+  "profileUrl": "https://www.google.com/john.smith",
+  "title": "Software Developer",
+  "userType": "Employee",
+  "preferredLanguage": "English",
+  "locale": "EN",
+  "timezone": "Europe/Sofia",
+  "active": true,
+  "emails": [
+    {
+      "type": "work",
+      "value": "aribacisuser1@gmail.com",
+      "display": "Imran.Khan",
+      "primary": true
+    }
+  ],
+  "phoneNumbers": [
+    {
+      "type": "work",
+      "value": "786-555-5555",
+      "display": "Imran's phone",
+      "primary": true
+    }
+  ],
+  "addresses": [
+    {
+      "formatted": "8 Europa Str.",
+      "primary": true,
+      "country": "BG",
+      "locality": "Sofia",
+      "postalCode": "1000",
+      "region": "SA",
+      "streetAddress": "Europa Str.",
+      "type": "work"
+    }
+  ],
+  "entitlements": [
+    {
+      "type": "work",
+      "value": "random",
+      "primary": true
+    }
+  ],
+  "roles": [
+    {
+      "type": "Read Users",
+      "value": "random",
+      "primary": true
+    }
+  ],
+  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+    "division": "IDS",
+    "costCenter": "4130",
+    "organization": "IDStore",
+    "department": "Administration",
+    "employeeNumber": "401984" 
+  },
+  "urn:ietf:params:scim:schemas:extension:sap:2.0:User": {
+    "status": "active",
+    "industry": "Banking",
+    "companyRelationship": "Customer",
+    "enforceMfa": true,
+    "contactPreferences": {
+      "email": "yes",
+      "telephone": "yes"
+    },
+    "socialIdentities": [
+      {
+        "socialId": "777K815BM",
+        "socialProvider": "LINKEDIN",
+        "dateOfLinking": "2023-07-24T11:56:47.264Z"
+      }
+    ],
+    "passwordDetails": {
+      "failedLoginAttempts": 0,
+      "status": "enabled",
+      "policy": "https://accounts.sap.com/policy/passwords/sap/enterprise/1.0"
+    },
+
+    "addresses": [
+      {
+        "formatted": "8 Europa Str.",
+        "primary": true,
+        "country": "BG",
+        "locality": "Sofia",
+        "postalCode": "1000",
+        "region": "SA",
+        "streetAddress": "Europa Str.",
+        "streetAddress2": "Sofia Str.",
+        "type": "work"
+      }
+    ],
+    "corporateGroups": [
+      {
+        "value": "admin"
+      }
+    ],
+    "phoneNumbers": [
+      {
+        "type": "work",
+        "value": "786-555-5555",
+        "display": "Imran's phone",
+        "primary": true
+      }
+    ],
+    "validFrom": "2024-07-24T11:56:47.264Z",
+    "validTo": "2027-07-24T11:56:47.264Z"
+  },
+  "urn:ietf:params:scim:schemas:extension:sap.odm:2.0:User": {
+    "costCenter": [
+      {
+        "companyCodeId": "1710",
+        "costCenterId": "0017101101",
+        "primary": true
+
+      }
+    ],
+    "companyCode": [
+      {
+        "displayId": "1710",
+        "primary": true
+
+      }
+    ],
+    "generalLedgerAccount": [
+      {
+        "companyCodeId": "1000",
+        "displayId": "0000400000",
+        "primary": true
+
+      }
+    ],
+    "purchasingOrganization": [
+      {
+        "displayId": "1710",
+        "primary": true
+
+      }
+    ],
+    "purchasingGroup": [
+      {
+        "displayId": "001",
+        "primary": true
+
+      }
+    ]
+  },
+  "urn:ietf:params:scim:schemas:extension:vendor:ariba:2.0:User": {
+    "currency": "EUR",
+    "deliverTo": "Ariba User (Functional)",
+    "passwordAdapter": "PasswordAdapter1",
+    "addresses": [
+      {
+        "type": "BillingAddress",
+        "value": "1710",
+        "name": "Plant1 US"
+      },
+      {
+        "type": "ShippingAddress",
+        "value": "1710"
+      }
+    ]
+  }
+}
